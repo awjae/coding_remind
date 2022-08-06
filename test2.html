@@ -1,0 +1,15 @@
+<button>test</button>
+<script>
+  const button = document.querySelector('button');
+  button.addEventListener('click', () => {
+    console.log(this)
+  console.log(this === window);  // A
+  console.log(this === button);  // B
+});
+
+button.addEventListener('click', function() {
+    console.log(this)
+  console.log(this === window); // C
+  console.log(this === button); // D
+});
+</script>
