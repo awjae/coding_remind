@@ -1,7 +1,9 @@
 const arr = new Array(1000000).fill(0);
 
 console.time("forEach 시간");
-arr.forEach(el => el = 1);
+arr.forEach(el => {
+  el = 1
+});
 console.timeEnd("forEach 시간");
 
 console.time("for문 시간")
