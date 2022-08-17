@@ -26,6 +26,18 @@ const test2 = async () => {
   Promise.race([promise1, promise2, promise3]).then(text => console.log(text));
 }
 
+async function* createAsyncGenerator() {
+  yield await Promise.resolve(1);
+  yield await Promise.resolve(2);
+  yield await Promise.resolve(3);
+}
+const asyncGen = createAsyncGenerator();
+asyncGen.next()
+  .then((res) => console.log(res.value)); 
+asyncGen.next()
+  .then((res) => console.log(res.value)); 
+asyncGen.next()
+  .then((res) => console.log(res.value));
 
 async function* foo() {
   yield await Promise.resolve('a');
@@ -33,13 +45,12 @@ async function* foo() {
   yield await Promise.resolve('c');
 }
 
-let str = '';
-
 async function generate() {
+  let str = '';
   for await (const val of foo()) {
     str = str + val;
   }
   console.log(str);
 }
 
-generate();
+// generate();
