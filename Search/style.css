@@ -1,0 +1,33 @@
+.App {
+  margin: 300px 0px;
+  text-align: center;
+}
+.App input {
+  width: 400px;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+.App .Suggestion ul {
+  width: 440px;
+  margin: 0 auto;
+  padding: 0;
+  max-height: 450px;
+  overflow: auto;
+  border: 1px solid;
+  margin-top: 5px;
+  border-radius: 10px;
+}
+.App .Suggestion li {
+  list-style: none;
+}
+.App .Suggestion li:hover {
+  background: lavender;
+  cursor: pointer;
+}
+.App .Suggestion .Suggestion__item--selected {
+  background-color: lavender;
+}
+.App .Suggestion img {
+  width: 100px;
+}
