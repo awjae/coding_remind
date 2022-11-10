@@ -1,13 +1,39 @@
 import Home from './pages/Home.js';
+import Service from './pages/Service.js';
+import Intro from './pages/Intro.js';
+import Partner from './pages/Partner.js';
+
+import { initRouter } from './utils/Router.js';
 
 export default function App ({ target }) {
   this.route = () => {
-    // const { pathname } = location
+    this.cleanup();
+
+    const { pathname } = location
+
+    switch (pathname) {
+      case "/" : 
+          new Home({ target });
+        return 
+      case "/service" :
+          new Service({ target });
+        return
+      case "/intro" :
+          new Intro({ target });
+        return
+      case "/partner" :
+          new Partner({ target });
+        return
+      default :
+          new Home({ target });
+        return 
+    }
   }
 
-  this.render = () => {
-    const home = new Home({ target });
-
+  this.cleanup = () => {
+    target.innerHTML ="";
   }
-  this.render();
+
+  initRouter(this.route);
+  this.route();
 }

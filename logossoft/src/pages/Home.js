@@ -1,9 +1,9 @@
 import TopNav from '../components/TopNav.js';
 
 export default function Home({target}) {
-
+  
   this.render = () => {
-    const nav = new TopNav({ target });
+    new TopNav({ target, initState: { menu: "home"} });
 
   }
   this.render();
