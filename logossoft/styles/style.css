@@ -5,15 +5,21 @@ html {
   font-size-adjust: none;
   --white: #ffffff;
   --font-1: #f08614;
+  height: 3000px;
 }
 a {
   text-decoration: none;
 }
 
+/* nav.css */
 nav {
   display: flex;
   padding: 20px 40px;
   background: rgba(0, 0, 0, .9);
+  position: fixed;
+  width: calc(100% - 80px);
+  top: 0px;
+  z-index: 1000;
 }
 nav img {
   filter: invert(.9);
@@ -42,4 +48,88 @@ nav li {
 }
 nav li:hover, nav li.active {
   color: var(--font-1);
+}
+
+/* MainBanner.css */
+.mainBanner {
+  height: 650px;
+  margin-top: 94px;
+  background: #000;
+  position: relative;
+}
+.mainBanner img {
+  width: 25%;
+  height: 650px;
+  object-fit: cover;
+  animation: cardRotate infinite;
+  animation-duration: 15s;
+  
+}
+.mainBanner img:nth-child(2) {
+  animation-delay: .5s;
+}
+.mainBanner img:nth-child(3) {
+  animation-delay: 1s;
+}
+.mainBanner img:nth-child(4) {
+  animation-delay: 1.5s;
+}
+@keyframes cardRotate {
+  40% {
+    transform: rotateY(0deg);
+    filter: grayscale(0);
+    opacity: .7;
+  }
+  55% {
+    transform: rotateY(180deg);
+    filter: grayscale(1);
+    opacity: 1;
+  }
+  70% {
+    transform: rotateY(0deg);
+    filter: grayscale(0);
+    opacity: .7;
+  }
+}
+.mainBanner-intro {
+  position: absolute;
+  width: 710px;
+  height: 225px;
+  display: inline-block;
+  bottom: -150px;
+  right: 100px;
+  background-color: #000;
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, .9);
+  opacity: .85;
+  animation: fadeIn 1.4s;
+}
+.mainBanner-intro h1 {
+  font-size: 66px;
+  color: #1a2b6d;
+  margin: 0px;
+  margin-bottom: 40px;
+  color: #f08614;
+  letter-spacing: -1px;
+}
+.mainBanner-intro div {
+  font-size: 21px;
+  word-break: keep-all;
+  line-height: 1.6;
+  color: #d4d4d4;
+}
+@keyframes fadeIn {
+  0% {
+    right: 800px;
+    opacity: 0;
+  }
+  70% {
+    right: 800px;
+    opacity: 0;
+  }
+  100% {
+    right: 100px;
+    opacity: .85;
+  }
 }
