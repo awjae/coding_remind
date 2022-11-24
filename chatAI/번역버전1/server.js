@@ -4,7 +4,7 @@ const request = require('request');
 const { OpenAIApi, Configuration } = require('openai');
 
 let config = new Configuration({
-  apiKey: 'openai사이트에있던 apikey',
+  apiKey: process.env.OEPNAP_KEY,
 });
 let openai = new OpenAIApi(config);
 
@@ -14,8 +14,8 @@ app.get('/', function(req,res){
   res.sendFile(__dirname + '/index.html')
 })
 
-const client_id = 'm0zrZfHCzeDgjZ2nDgeK';
-const client_secret = 'tIdJBVQ0xn';
+const client_id = process.env.PAPAGO_ID;
+const client_secret = process.env.PAPAGO_PW;
 
 app.get('/translate', function (req, res) {
   const api_url = 'https://openapi.naver.com/v1/papago/n2mt';
