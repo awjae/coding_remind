@@ -10,3 +10,4 @@ openai API key & 네이버 개발자센터에서 발급받은 파파고 Client I
 
 api get
 https://beta.openai.com/account/api-keys
+https://developers.naver.com/apps/#/myapps/jTY09BfHE8xRZMUP8DS3/playground
