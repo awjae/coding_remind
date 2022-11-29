@@ -42,16 +42,16 @@
         </div>
       </div>`;
       document.querySelector('.chat-content').insertAdjacentHTML('beforeend',  template1);
-
+      console.log(document.querySelector('#input').value)
 
       let q = 'http://localhost:3000/translate?q=' + document.querySelector('#input').value;
       axios.get(q).then(r => {
 
-        var 결과 = JSON.parse(r.data).message.result.translatedText;
-        console.log(결과);
+        console.log(r.data)
+        const data = JSON.parse(r.data).message.result.translatedText;
 
         let template2 = `<div class="line">
-          <div class="chat-box">${결과}</div>
+          <div class="chat-box">${data}</div>
         </div>`;
         document.querySelector('.chat-content').insertAdjacentHTML('beforeend', template2);
       }).catch((error)=>{console.log('실패',error)})
