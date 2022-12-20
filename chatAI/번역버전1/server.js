@@ -1,10 +1,10 @@
-var express = require('express');
-var app = express();
-var request = require('request');
-var { OpenAIApi, Configuration } = require('openai');
+const express = require('express');
+const app = express();
+const request = require('request');
+const { OpenAIApi, Configuration } = require('openai');
 
 let config = new Configuration({
-  apiKey: 'openai사이트에있던 apikey',
+  apiKey: process.env.OEPNAP_KEY,
 });
 let openai = new OpenAIApi(config);
 
@@ -14,14 +14,14 @@ app.get('/', function(req,res){
   res.sendFile(__dirname + '/index.html')
 })
 
-var client_id = '네이버api센터에서 발급받은 api id';
-var client_secret = '네이버api센터에서 발급받은 api secret';
+const client_id = process.env.PAPAGO_ID;
+const client_secret = process.env.PAPAGO_PW;
 
 app.get('/translate', function (req, res) {
-   var api_url = 'https://openapi.naver.com/v1/papago/n2mt';
-   var query = req.query.q;
+  const api_url = 'https://openapi.naver.com/v1/papago/n2mt';
+  const query = req.query.q;
    
-   var options = {
+  const options = {
        url: api_url,
        form: {'source':'ko', 'target':'en', 'text':query},
        headers: {'X-Naver-Client-Id':client_id, 'X-Naver-Client-Secret': client_secret}
@@ -40,9 +40,9 @@ app.get('/translate', function (req, res) {
         }).then((result) => {
           console.log('ai 응답', result.data.choices[0].text);
 
-          var api_url = 'https://openapi.naver.com/v1/papago/n2mt';
-          var query = result.data.choices[0].text;
-          var options = {
+          const api_url = 'https://openapi.naver.com/v1/papago/n2mt';
+          const query = result.data.choices[0].text;
+          const options = {
               url: api_url,
               form: {'source':'en', 'target':'ko', 'text':query},
               headers: {'X-Naver-Client-Id':client_id, 'X-Naver-Client-Secret': client_secret}

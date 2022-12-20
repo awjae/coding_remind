@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .board {
+      width: 300px;
+      height: 300px;
+      background-color: #fafafa;
+    }
+  </style>
+</head>
+<body>
+  <section class="palette">
+    ⬜🟩🟨🟧
+  </section>
+  <section>
+    <div class="board"></div>
+    <button onclick="copyToClipBoard()">Clip</button>
+  </section>
+  <script>
+    function copyToClipBoard() {
+      // const content = document.querySelector('.palette');
+      // content.select();
+      navigator.clipboard.writeText("⬜🟩🟨🟧\n⬜⬜⬜⬜⬜\n⬜🟩🟩🟩⬜")
+        .then(() => {
+          console.log("Text copied to clipboard...")
+        }
+      )
+      .catch(err => {
+        console.log('Something went wrong', err);
+      })
+      document.execCommand('copy');
+    }
+  </script>
+</body>
+</html>
