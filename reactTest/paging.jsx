@@ -19,11 +19,13 @@ export default function Table () {
   const getData = async (page) => {
     const response = await fetch(`${USERS_URL}?page=${page}`);
     if (response.status === 200) {
+      setIsLoading(false);
       const data = await response.json();
       setList(data.results);
       setCurrentPage(page);
-      setIsLoading(false);
-      if ((data.count%10) === 0) {
+      if (data.results.length === 0) {
+        setLastPage(0);        
+      } else if ((data.count%10) === 0) {
         setLastPage((data.count/10) - 1);
       } else {
         setLastPage(parseInt(data.count/10));
