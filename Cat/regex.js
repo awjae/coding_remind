@@ -46,4 +46,11 @@ if (result) {
     console.log('Not Contain Special Character')
 }
 
+
+const regexEmail2 = /^([a-zA-Z0-9\.])+@([\w\.\-\_])+([a-zA-Z0-9]+\.co)$/
+console.log(regexEmail2.test(id));
+
+const regexPw2 = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@~])[a-zA-Z0-9!@~]{8,20}$/
+console.log(regexPw.test(pw));
+
 //https://dev.to/zidniryi/advanced-regex-with-modern-javascript-complete-guide-1d4d
