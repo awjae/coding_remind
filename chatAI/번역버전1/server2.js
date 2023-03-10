@@ -4,12 +4,12 @@ const app = express();
 const { OpenAIApi, Configuration } = require('openai');
 
 let config = new Configuration({
-  apiKey: 'sk-dVa4D0gwsO6BcZIwf6cmT3BlbkFJxf1mF1kGODhA83e6xLgA401',
+  apiKey: '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',
 });
 let openai = new OpenAIApi(config);
 
-const client_id = 'jTY09BfHE8xRZMUP8DS3424';
-const client_secret = 'JGFOpJbJ2W495';
+const client_id = 'jTY09BfHE8xRZMUP8DS3';
+const client_secret = 'JGFOpJbJ2W';
 
 app.get('/translate', function (req, res) {
   const query = req.query.q;
@@ -31,7 +31,7 @@ app.get('/translate', function (req, res) {
     if (!error && response.statusCode == 200) {
       let EN_TEXT = JSON.parse(body).message?.result.translatedText;
       openai.createCompletion({
-        model: "text-davinci-002",
+        model: "text-davinci-003",
         prompt: EN_TEXT,
         temperature: 0.7,
         max_tokens: 128,

@@ -3,6 +3,7 @@ import Breadcrumb from './Breadcrumb.js';
 import Nodes from './Nodes.js';
 import Loading from './Loading.js';
 import ImageView from './ImageView.js';
+import Paging from './Paging.js';
 
 export default function App({target}) {
 
@@ -10,6 +11,7 @@ export default function App({target}) {
         files: [],
         path: [""],
         pathName: [""],
+        list: [1,2,3,4,5,6,7,8,98,9,101,2,2,3,1,2,3,1,23,1,2,5,23,6,67],
     }
 
     this.setState = (nextState) => {
@@ -20,8 +22,11 @@ export default function App({target}) {
     }
 
     this.render = async () => {
+
+        const paging = new Paging({ target, list: this.state.list });
+
         const loading = new Loading();
-        const result = await fetchRequest(this.state.path[this.state.path.length - 1]);
+        // const result = await fetchRequest(this.state.path[this.state.path.length - 1]);
         loading.delete();
         this.setState({ files: result });
 
@@ -46,6 +51,7 @@ export default function App({target}) {
                 this.render();
             }
         });
+
     }
     this.render();
 }

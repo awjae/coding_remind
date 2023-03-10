@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <table>
+    <tbody>
+      <tr>
+        <td style="color: #ff00ff; background-color:#ffffff">Q</td>
+        <td style="color: #442244; background-color:#442244">Y</td>
+        <td style="color: #ffff00; background-color:#442244">A</td>
+      </tr>
+      <tr>
+        <td style="color: #ffeefe; background-color: #990000">Q</td>
+        <td style="color: #ffff00; background-color: #ff0">M</td>
+        <td style="color: #000000; background-color: #ff7777">O</td>
+      </tr>
+    </tbody>
+  </table>
+<script>
+  function solution() {
+    const tds = document.querySelector('table').querySelectorAll('td');
+    let result = "";
+    tds.forEach(td => {
+        //rgb값 비교
+        if (td.style.color !== td.style.backgroundColor) {
+            result += td.textContent;
+        }
+    })
+    return result;
+}
+
+  console.log(solution());
+</script>
+</body>
+</html>
